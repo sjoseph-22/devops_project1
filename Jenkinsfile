@@ -108,6 +108,11 @@ pipeline{
                    dockerImageCleanup("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
                }
             }
-        }      
+        }  
+        stage('Clean Workspace') {
+          steps {
+            cleanWs()
+          }
+        }
     }
 }
