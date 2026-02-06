@@ -1,24 +1,34 @@
-# kubernetes-configmap-reload
+# CI/CD Project using Jenkins and Docker
+This document outlines the step-by-step process for deploying a java application on an AWS EC2 instance. The deployment is containerized using Docker. A full CI/CD pipeline is established using Jenkins to automate the build and deployment process whenever new code is pushed to a GitHub repository
 
-Pre-requisites:
+Create AWS EC2 with these parameters:
 --------
-    - Install Git
-    - Install Maven
-    - Install Docker
-    - EKS Cluster
+    - EC2 type: Ubuntu t2.medium
+    - EBS volume: 30GB
+    - Region: US-EAST-1
     
-Clone code from github:
+Connect to EC2 instance and install all tools as root user:
 -------
-    git clone https://github.com/vikash-kumar01/spring-cloud-kubernetes.git
-    cd spring-cloud-kubernetes/kubernetes-configmap-reload
+    - sudo su
     
-Build Maven Artifact:
+Install Jenkins:
 -------
-    mvn clean install
+    - sudo apt update -y
+    - sudo apt upgrade -y 
+    - sudo apt install openjdk-17-jre -y
+    - curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+    - echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+    - sudo apt-get update -y 
+    - sudo apt-get install jenkins -y
+
+<img width="959" height="419" alt="jenkins-running" src="https://github.com/user-attachments/assets/9c7ef73a-82ef-419d-b0c8-85baa63a052b" />
+
  
-Build Docker image for Springboot Application
+Change security group for EC2 instance
 --------------
-    docker build -t vikashashoke/kubernetes-configmap-reload .
+    Security -> Security group -> Edit inbound rules
+    Type: All Traffic
+    Source: Anywhere for IPv4
   
 Docker login
 -------------
