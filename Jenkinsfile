@@ -24,6 +24,15 @@ pipeline{
             )
             }
         }
+        stage('Verify Dockerfile') {
+                      when { expression { params.action == 'create' } }
+            steps {
+            script {
+                // This prints the content of the Dockerfile to the console output
+                sh 'cat Dockerfile'
+            }
+            }
+        }
          stage('Unit Test maven'){
          
          when { expression {  params.action == 'create' } }
