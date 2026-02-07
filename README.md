@@ -119,7 +119,7 @@ Add SonarQube in Jenkins:
     Jenkins Dashboard -> Settings -> Configure System.
     Click sonarqube servers -> add url and name -> Click add token -> Select Secret text -> Add sonar token saved earlier -> Name token as sonar-api
 
-<img width="959" height="443" alt="sonarqube-api" src="https://github.com/user-attachments/assets/48f3ca14-54f7-4c7c-bc7a-e5fcb6032a94" /
+<img width="959" height="443" alt="sonarqube-api" src="https://github.com/user-attachments/assets/48f3ca14-54f7-4c7c-bc7a-e5fcb6032a94" />
 
 Add DockerHub creds in Jenkins:
 -----------
