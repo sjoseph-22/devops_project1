@@ -1,4 +1,4 @@
-# CI/CD Project using Jenkins and Docker
+# CI Project using Jenkins and Docker
 This document outlines the step-by-step process for deploying a java application on an AWS EC2 instance. The deployment is containerized using Docker. A full CI/CD pipeline is established using Jenkins to automate the build and deployment process whenever new code is pushed to a GitHub repository
 
 Create AWS EC2 with these parameters:
